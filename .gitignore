@@ -1,0 +1,51 @@
+######################################
+# Terraform Standard Ignore
+######################################
+
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.backup
+
+# Crash logs
+crash.log
+
+# Ignore Terraform plan files
+*.tfplan
+*.tfplan.json
+
+# Ignore override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignoring lock file 
+.terraform.lock.hcl
+
+######################################
+# VS Code
+######################################
+
+# VS Code settings folder
+.vscode/
+
+# VS Code workspace files
+*.code-workspace
+
+######################################
+# OS / Editor Extras
+######################################
+
+# Windows thumbnail cache
+Thumbs.db
+Desktop.ini
+
+# Mac system files
+.DS_Store
+
+# Logs
+*.log
+

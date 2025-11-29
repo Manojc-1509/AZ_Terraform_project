@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Cloud Learning Path</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0078d4 0%, #00188f 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInDown 1s ease;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .tech-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeIn 1s ease both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-card:nth-child(1) { animation-delay: 0.3s; }
+        .tech-card:nth-child(2) { animation-delay: 0.4s; }
+        .tech-card:nth-child(3) { animation-delay: 0.5s; }
+        .tech-card:nth-child(4) { animation-delay: 0.6s; }
+
+        .tech-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            transition: 0.5s;
+        }
+
+        .tech-card:hover::before {
+            left: 100%;
+        }
+
+        .icon-3d {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5em;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .tech-card:hover .icon-3d {
+            transform: rotateY(360deg);
+        }
+
+        .tech-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .tech-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin: 80px 0;
+            animation: fadeIn 1s ease 0.7s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, #50e3c2, #00d4ff);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,212,255,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.3);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,212,255,0.6);
+        }
+
+        .floating-shapes {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #50e3c2, #00d4ff);
+            border-radius: 20px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            border-radius: 50%;
+            top: 60%;
+            right: 15%;
+            animation-delay: 3s;
+        }
+
+        .shape:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #a8e6cf, #dcedc1);
+            border-radius: 30px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 6s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .subtitle { font-size: 1.1em; }
+            .tech-grid { grid-template-columns: 1fr; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>☁️ Azure Cloud Learning Path</h1>
+            <p class="subtitle">Master modern cloud infrastructure with hands-on experience</p>
+        </header>
+
+        <div class="tech-grid">
+            <div class="tech-card">
+                <div class="icon-3d">☁️</div>
+                <h3>Microsoft Azure</h3>
+                <p>Build and deploy scalable cloud solutions with Azure's comprehensive platform services and global infrastructure</p>
+            </div>
+
+            <div class="tech-card">
+                <div class="icon-3d">🏗️</div>
+                <h3>Terraform</h3>
+                <p>Infrastructure as Code that enables you to safely and predictably provision and manage cloud infrastructure</p>
+            </div>
+
+            <div class="tech-card">
+                <div class="icon-3d">⚓</div>
+                <h3>Kubernetes</h3>
+                <p>Container orchestration platform for automating deployment, scaling, and management of applications</p>
+            </div>
+
+            <div class="tech-card">
+                <div class="icon-3d">🚀</div>
+                <h3>DevOps Tools</h3>
+                <p>CI/CD pipelines, monitoring, and automation tools to streamline your cloud development workflow</p>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <a href="#" class="cta-button">Start Learning Journey</a>
+        </div>
+    </div>
+</body>
+</html>
