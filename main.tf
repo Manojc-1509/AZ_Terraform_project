@@ -9,13 +9,13 @@ data "terraform_remote_state" "shared" {
 }
 
 module "resource_group" {
-  source              = "../../modules/resource_group"
+  source              = "./modules/resource_group"
   resource_group_name = var.resource_group_name
   location            = var.location
 }
 
 module "network" {
-  source              = "../../modules/network"
+  source              = "./modules/network"
   resource_group_name = module.resource_group.resource_group_name
   vnet_name           = var.vnet_name
   location            = var.location
@@ -25,7 +25,7 @@ module "network" {
 }
 
 module "storage_accout" {
-  source              = "../../modules/storage"
+  source              = "./modules/storage"
   resource_group_name = module.resource_group.resource_group_name
   location            = var.location
   storage_accout_name = var.storage_accout_name
@@ -33,7 +33,7 @@ module "storage_accout" {
 }
 
 module "app_service" {
-  source              = "../../modules/app_service"
+  source              = "./modules/app_service"
   resource_group_name = module.resource_group.resource_group_name
   location            = var.location
   service_plan_name   = var.service_plan_name
