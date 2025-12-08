@@ -25,3 +25,7 @@ variable "acr_password" {
 variable "webapp_name" {
   type = string
 }
+
+variable "subnet_id" {
+  type = string
+}

@@ -1,8 +1,8 @@
 # Resource group part
-
+shared_infra = false
 resource_group_name = "dev-rg"
 location = "central india"
-
+deploy_env = true
 # Network part 
 
 vnet_name = "dev-vnet"

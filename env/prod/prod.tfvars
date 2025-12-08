@@ -1,16 +1,16 @@
 # Resource group part
-
+deploy_env = true
 resource_group_name = "prod-rg"
 location = "central india"
 
 # Network part 
 
 vnet_name = "prod-vnet"
-vnet_address_space = ["10.0.0.0/16"]
+vnet_address_space = ["10.20.0.0/16"]
 
 # Subnet part
 subnet_name = "prod-subnet"
-subnet_address = ["10.0.1.0/24"]
+subnet_address = ["10.20.1.0/24"]
 
 # Storage part
 

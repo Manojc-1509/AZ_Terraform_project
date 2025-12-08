@@ -1,0 +1,4 @@
+    resource_group_name  = "Terraform-statefiles"            
+    storage_account_name = "tfstatefiles1509"     
+    container_name       = "testing"               
+    key                  = "shared/terraform.tfstate"

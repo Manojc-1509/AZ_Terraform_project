@@ -43,3 +43,11 @@ variable "webapp_name" {
   type = string
 }
 
+variable "shared_infra" {
+  type    = bool
+  default = false
+}
+
+variable "deploy_env" {
+  type = bool
+}
