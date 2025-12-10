@@ -53,11 +53,11 @@ module "network" {
   count               = var.deploy_env ? 1 : 0
   source              = "./modules/network"
   resource_group_name = module.resource_group[0].resource_group_name
-  vnet_name           = var.vnet_name
+  vnet_name           = "${var.env}-Vnet"
   location            = var.location
   vnet_address_space  = var.vnet_address_space
   subnet_address      = var.subnet_address
-  subnet_name         = var.subnet_name
+  subnet_name         = "${var.env}-subnet"
 }
 
 
@@ -70,8 +70,8 @@ module "storage_accout" {
   source              = "./modules/storage"
   resource_group_name = module.resource_group[0].resource_group_name
   location            = var.location
-  storage_accout_name = var.storage_accout_name
-  fileshare_name      = var.fileshare_name
+  storage_accout_name = "${var.env}storage1509"
+  fileshare_name      = "${var.env}-fileshare"
 }
 
 
@@ -84,8 +84,8 @@ module "app_service" {
   source              = "./modules/app_service"
   resource_group_name = module.resource_group[0].resource_group_name
   location            = var.location
-  service_plan_name   = var.service_plan_name
-  webapp_name         = var.webapp_name
+  service_plan_name   = "${var.env}-appservice1509"
+  webapp_name         = "${var.env}-container-webapp1509"
   subnet_id           = module.network[0].subnet_id
 
   # Use ACR only if shared_infra = true, else use remote state

@@ -8,9 +8,9 @@ variable "location" {
 
 # Network part 
 
-variable "vnet_name" {
-  type = string
-}
+# variable "vnet_name" {
+#   type = string
+# }
 
 variable "vnet_address_space" {
   type = list(string)
@@ -20,28 +20,28 @@ variable "subnet_address" {
   type = list(string)
 }
 
-variable "subnet_name" {
-  type = string
-}
+# variable "subnet_name" {
+#   type = string
+# }
 # Storage part
 
-variable "storage_accout_name" {
-  type = string
-}
+# variable "storage_accout_name" {
+#   type = string
+# }
 
-variable "fileshare_name" {
-  type = string
-}
+# variable "fileshare_name" {
+#   type = string
+# }
 
 # App service
 
-variable "service_plan_name" {
-  type = string
-}
+# variable "service_plan_name" {
+#   type = string
+# }
 
-variable "webapp_name" {
-  type = string
-}
+# variable "webapp_name" {
+#   type = string
+# }
 
 variable "shared_infra" {
   type    = bool
@@ -50,4 +50,8 @@ variable "shared_infra" {
 
 variable "deploy_env" {
   type = bool
+}
+
+variable "env" {
+  type = string
 }
